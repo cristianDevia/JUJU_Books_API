@@ -2,17 +2,24 @@ import Book from "../models/Book";
 
 export const createBooks = async (req, res) => {
   try {
+    const stateList = ["DISPONIBLE", "RESERVADO"];
+
     if (req && req.body) {
       const { title, author, publicationYear, state } = req.body;
-      const newBook = new Book({
-        title,
-        author,
-        publicationYear,
-        state,
-      });
 
-      const bookSaved = await newBook.save();
-      res.json(bookSaved);
+      if (stateList.includes(state.toUpperCase())) {
+        const newBook = new Book({
+          title,
+          author,
+          publicationYear,
+          state,
+        });
+
+        const bookSaved = await newBook.save();
+        res.json(bookSaved);
+      } else {
+        res.status(400).json("Estado incorrecto");
+      }
     }
   } catch (error) {
     res.json(error);
