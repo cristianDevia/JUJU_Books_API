@@ -57,7 +57,16 @@ export const updateBooksById = async (req, res) => {
 export const deleteBooksById = async (req, res) => {
   try {
     const deletedBook = await Book.findByIdAndDelete(req.params.bookId);
-    res.json(deletedBook);
+    if (!deletedBook) return res.json({ message: "No se encuentra el libro" });
+
+    const { title, author, publicationYear, state } = deletedBook;
+    const book = {
+      title,
+      author,
+      publicationYear,
+      state,
+    };
+    res.json({ message: "Deleted book", book });
   } catch (error) {
     res.json(error);
   }
