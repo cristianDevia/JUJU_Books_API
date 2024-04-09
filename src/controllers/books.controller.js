@@ -18,7 +18,7 @@ export const createBooks = async (req, res) => {
         const bookSaved = await newBook.save();
         res.json(bookSaved);
       } else {
-        res.status(400).json("Estado incorrecto");
+        res.status(400).json({ message: "Estado incorrecto" });
       }
     }
   } catch (error) {
