@@ -7,6 +7,9 @@ export const signUp = async (req, res) => {
     if (req && req.body) {
       const { email, password } = req.body;
 
+      const emailExists = await User.findOne({ email: email });
+      if (emailExists) return res.json({ message: "El usuario ya existe" });
+
       const newUser = new User({
         email,
         password: await User.encryptPassword(password),
