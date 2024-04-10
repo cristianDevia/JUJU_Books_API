@@ -1,0 +1,31 @@
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-family: "Times New Roman", Times, serif;
+}
+table td,
+table th {
+  border: 1px solid black;
+  padding: 10px;
+}
+.addBook {
+  margin: 10px 10px 15px 0px;
+}
+.logout {
+  margin: 10px 0px 15px 0px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+.title {
+  text-align: center;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

@@ -27,27 +27,21 @@
 }
 
 .form button {
-  background-color: #007bff;
+  background-color: #0056b3;
   color: #ffffff;
   cursor: pointer;
 }
 
 .form button:hover {
-  background-color: #0056b3;
+  background-color: #007bff;
 }
 
 .form input::placeholder {
   text-align: center;
 }
 
-.haveAcount {
-  text-decoration: none;
-  color: darkgray;
-  text-align: center;
-  font-size: small;
-}
 .haveAcount:hover {
-  color: #0056b3;
+  color: #007bff;
 }
 .token-error {
   color: red;
