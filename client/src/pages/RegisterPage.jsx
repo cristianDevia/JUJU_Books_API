@@ -15,10 +15,11 @@ function RegisterPage() {
 
   const onSubmit = handleSubmit(async (data) => {
     signUp(data);
+    navigate("/login");
   });
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/books");
+    if (isAuthenticated) navigate("/login");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 

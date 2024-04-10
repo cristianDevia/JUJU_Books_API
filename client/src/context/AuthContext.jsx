@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
       };
       if (newUser.token !== null) {
         setUser(newUser);
-        setIsAuthenticated(true);
+        setIsAuthenticated(false);
       } else {
         setUser(null);
         setIsAuthenticated(null);
