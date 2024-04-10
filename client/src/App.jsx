@@ -1,19 +1,31 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import { AuthProvider } from "./context/AuthContext";
+import { BookProvider } from "./context/BookContext";
+import ProtectedRoutes from "../ProtectedRoutes";
+import BookList from "./pages/BookList";
+import AddBooks from "./pages/AddBooks";
+import UpdateBook from "./pages/UpdateBook";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<h1>Home Page</h1>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/books" element={<h1>Book List</h1>} />
-        <Route path="/add-book" element={<h1>Add Book</h1>} />
-        <Route path="/book/:id" element={<h1>Book ID</h1>} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BookProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/books" element={<BookList />} />
+              <Route path="/add-book" element={<AddBooks />} />
+              <Route path="/books/:id" element={<UpdateBook />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </BookProvider>
+    </AuthProvider>
   );
 }
 export default App;
