@@ -4,7 +4,7 @@ const bookSchema = new Schema(
   {
     title: String,
     author: String,
-    publicationYear: Date,
+    publicationYear: String,
     state: String,
   },
   { collection: "Books", timestamps: true, versionKey: false }

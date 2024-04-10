@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.form-container {
+  width: 300px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.form input,
+.form button {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ced4da;
+}
+
+.form button {
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+.form input::placeholder {
+  text-align: center;
+}
+
+.haveAcount {
+  text-decoration: none;
+  color: darkgray;
+  text-align: center;
+  font-size: small;
+}
+.haveAcount:hover {
+  color: #0056b3;
+}
+.token-error {
+  color: red;
+  text-align: center;
+  font-size: medium;
+}
+.form-errors {
+  color: red;
+  text-align: left;
+  font-size: small;
+}
+.signUpTitle {
+  text-align: center;
+}
